@@ -14,5 +14,5 @@ void main () {
     pi = pi + 4.0/(1.0+x*x);
   }
   pi *= step;
-  printf("Pi = %g\n", pi);
+  printf("Pi = %.16g\n", pi);
 }
