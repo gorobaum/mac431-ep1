@@ -5,7 +5,7 @@ double step;
 
 void main () {
   int i; 
-  double x, pi;
+  double x, pi = 0.0;
   step = 1.0/(double) num_steps;
 
   #pragma omp parallel for reduction(+:pi)

@@ -12,7 +12,7 @@ long pegapassos(int argc, char** argv) {
 
 void main (int argc, char** argv) {
   register int i;
-  register double pi, x;
+  register double pi = 0.0, x;
   double step;
   long num_steps = pegapassos(argc, argv);
   step = 1.0/(double) num_steps;
