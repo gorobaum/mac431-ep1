@@ -13,11 +13,10 @@ long pegapassos(int argc, char** argv) {
 void main (int argc, char** argv) {
   register int i;
   register double pi = 0.0, x;
-  double step;
   long num_steps = pegapassos(argc, argv);
-  step = 1.0/(double) num_steps;
+  double step = 1.0/(double) num_steps;
 
-  #pragma omp parallel for reduction(+:pi) private(x)
+  #pragma omp parallel for reduction(+:pi) private(x) firstprivate(step,num_steps)
   for (i = 0; i < num_steps; i++) {
     x = (i+0.5)*step;
     pi += 4.0/(1.0+x*x);
