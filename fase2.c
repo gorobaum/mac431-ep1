@@ -10,7 +10,7 @@ long pegapassos(int argc, char** argv) {
   return atol(argv[1]);
 }
 
-void main (int argc, char** argv) {
+int main (int argc, char** argv) {
   register int i;
   register double pi = 0.0, x;
   long num_steps = pegapassos(argc, argv);
@@ -22,5 +22,6 @@ void main (int argc, char** argv) {
     pi += 4.0/(1.0+x*x);
   }
   pi *= step;
-  printf("Pi = %.16g\n", pi);
+  printf("Pi = %.32g\n", pi);
+  return 0;
 }
