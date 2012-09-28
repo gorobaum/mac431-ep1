@@ -3,29 +3,29 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-long pegapassos(int argc, char** argv) {
+unsigned pegapassos(int argc, char** argv) {
   if (argc < 2 || argc > 2) {
-    printf("O programa recebe o número de passos. Adeus cara\n");
+    printf("O programa recebe o número de passos.\n");
     exit(0);
   }
-  return atol(argv[1]);
+  return strtoul(argv[1], NULL, 10);
 }
 
-static long   STEP_NUM;
-static long   THREAD_NUM;
-static double STEP;
+static unsigned STEP_NUM;
+static unsigned THREAD_NUM;
+static double   STEP;
 
 static double           pi = 0.0;
 static pthread_mutex_t  mutex;
 
 static void* worker_thread (void* arg) {
-  long            chunk_size = STEP_NUM/THREAD_NUM,
-                  id = (long)arg;
-  register int    i;
-  register double sum = 0.0, x;
-  register double step = STEP;
-  register int    begin = id*chunk_size,
-                  end = begin+chunk_size+(id+1==THREAD_NUM)*(STEP_NUM%THREAD_NUM);
+  unsigned          chunk_size = STEP_NUM/THREAD_NUM,
+                    id = (long)arg;
+  register unsigned i;
+  register double   sum = 0.0, x;
+  register double   step = STEP;
+  register unsigned begin = id*chunk_size,
+                    end = begin+chunk_size+(id+1==THREAD_NUM)*(STEP_NUM%THREAD_NUM);
   for (i = begin; i < end; i++) {
     x = (i+0.5)*step;
     sum += 4.0/(1.0+x*x);
@@ -37,9 +37,9 @@ static void* worker_thread (void* arg) {
 }
 
 int main (int argc, char** argv) {
-  register long   i;
+  unsigned long i;
   pthread_t *threads;
-  THREAD_NUM = sysconf(_SC_NPROCESSORS_ONLN);
+  THREAD_NUM = (unsigned)sysconf(_SC_NPROCESSORS_ONLN);
   STEP_NUM = pegapassos(argc, argv);
   STEP = 1.0/(double)STEP_NUM;
   threads = (pthread_t*)malloc(THREAD_NUM*sizeof(*threads));
