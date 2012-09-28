@@ -22,6 +22,6 @@ int main (int argc, char** argv) {
     pi += 4.0/(1.0+x*x);
   }
   pi *= step;
-  printf("Pi = %.32g\n", pi);
+  printf("Pi = %.16g\n", pi);
   return 0;
 }

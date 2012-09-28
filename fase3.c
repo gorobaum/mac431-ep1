@@ -23,8 +23,10 @@ static void* worker_thread (void* arg) {
   register double sum = 0.0, x;
   register long   chunk_size = STEP_NUM/THREAD_NUM;
   register double step = STEP;
-  register int    begin = begin*chunk_size,
-                  end = (begin+1)*chunk_size;
+  register long   id = (long)arg;
+  register int    begin = id*chunk_size,
+                  end = begin+chunk_size+(id+1==THREAD_NUM)*(STEP_NUM%THREAD_NUM);
+  printf("thread %ld from %d to %d\n", id, begin, end);
   for (i = begin; i < end; i++) {
     x = (i+0.5)*step;
     sum += 4.0/(1.0+x*x);
@@ -48,7 +50,8 @@ int main (int argc, char** argv) {
   for (i = 0; i < THREAD_NUM; i++)
     pthread_join(threads[i], NULL);
   free(threads);
-  printf("Pi = %.32g\n", pi);
+  pthread_mutex_destroy(&mutex);
+  printf("Pi = %.16g\n", pi);
   pthread_exit(NULL);
 }
 
