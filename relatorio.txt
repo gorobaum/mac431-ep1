@@ -10,12 +10,18 @@ Alunos:                     Nº USP:
 I. Fase 2
 
 
-  TODO
+  Na Fase2 colocamos todas as variáveis nos registradores, melhorando o tempo de acesso delas.
+  As variáveis step e num_step são private para as threads para evitar que elas leiam na memória da thread master, 
+  assim criando um conflito na memória que não é necessário.
+  Pensamos em ordenar chunks para cada thread, mas depois de alguns testes vimos que não houve diferença.
 
 
 II. Fase 3
 
 
-  TODO
+  Como na fase 2, as variáveis estão em registradores. Cada thread recebe um chunk de operações para realizar.
+  O tamanho de cada chunk é calculado a partir do número de threads e do número de passos. Se não é possível dividir
+  igualmente o tamanho dos chunks, a ultima thread fica com o restante dos passos. A soma na variável pi é protegida por
+  um mutex.
 
 
