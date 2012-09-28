@@ -1,0 +1,54 @@
+
+MAC0431-2012: Introdução à Computação Paralela e Distribuída
+Primeiro Exercício-Programa
+
+Alunos:                     Nº USP:
+  Thiago de Gouveia Nunes     6797289
+  Wilson Kazuo Mizutani       6797230
+
+
+I. Organização dos arquivos.
+
+
+  Nosso EP deve apresentar a seguinte organização de arquivos e pastas:
+
+    ep1-thiago-wilson/
+    |- Makefile
+    |- LEIAME
+    |- relatorio.txt
+    |- fase1.c
+    |- fase2.c
+    |- fase3.c
+      
+
+II. Compilação.
+
+
+  O programa vem com um Makefile para compilá-lo. Basta usar o comando
+
+    $ make
+
+  para compilar todas as fases do EP. Os binários compilados das fases 1, 2 e 3
+são 'fase1', 'fase2' e 'fase3', respectivamente.
+
+
+III. Dependências.
+
+
+  O EP usa OpenMP e PThreads.
+
+
+IV. Modo de uso do programa.
+
+
+  O binário 'fase1' não recebe argumentos da linha de comando, executando sempre
+um milhão de passos no algoritmo. Os binários 'fase2' e 'fase3' recebem o número
+de passos como argumento, que deve ser um número inteiro.
+
+
+V. Relatório
+
+
+  No arquivo relatorio.txt
+
+
