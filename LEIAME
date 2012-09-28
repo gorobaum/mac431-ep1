@@ -31,6 +31,9 @@ II. Compilação.
   para compilar todas as fases do EP. Os binários compilados das fases 1, 2 e 3
 são 'fase1', 'fase2' e 'fase3', respectivamente.
 
+  IMPORTANTE: Caso o Makefile não funcione para o Intel compiler, é só
+descomentar a linha indicada nele.
+
 
 III. Dependências.
 

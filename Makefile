@@ -1,4 +1,7 @@
 
+#Descomente caso o default não funcione para o Intel Compiler
+#CC = icc
+
 .PHONY: all
 all: fase1 fase2 fase3
 
