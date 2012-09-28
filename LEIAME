@@ -43,7 +43,8 @@ IV. Modo de uso do programa.
 
   O binário 'fase1' não recebe argumentos da linha de comando, executando sempre
 um milhão de passos no algoritmo. Os binários 'fase2' e 'fase3' recebem o número
-de passos como argumento, que deve ser um número inteiro.
+de passos como argumento, que deve ser um número inteiro positivo que caiba no
+tipo 'unsigned' da máquina na qual o programa foi compilado.
 
 
 V. Relatório
