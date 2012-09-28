@@ -19,14 +19,13 @@ static double           pi = 0.0;
 static pthread_mutex_t  mutex;
 
 static void* worker_thread (void* arg) {
+  long            chunk_size = STEP_NUM/THREAD_NUM,
+                  id = (long)arg;
   register int    i;
   register double sum = 0.0, x;
-  register long   chunk_size = STEP_NUM/THREAD_NUM;
   register double step = STEP;
-  register long   id = (long)arg;
   register int    begin = id*chunk_size,
                   end = begin+chunk_size+(id+1==THREAD_NUM)*(STEP_NUM%THREAD_NUM);
-  printf("thread %ld from %d to %d\n", id, begin, end);
   for (i = begin; i < end; i++) {
     x = (i+0.5)*step;
     sum += 4.0/(1.0+x*x);
