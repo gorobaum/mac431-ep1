@@ -1,0 +1,21 @@
+
+MAC0431-2012: Introdução à Computação Paralela e Distribuída
+Primeiro Exercício-Programa
+
+Alunos:                     Nº USP:
+  Thiago de Gouveia Nunes     6797289
+  Wilson Kazuo Mizutani       6797230
+
+
+I. Fase 2
+
+
+  TODO
+
+
+II. Fase 3
+
+
+  TODO
+
+
